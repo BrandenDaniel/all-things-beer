@@ -8,7 +8,7 @@ This web application is designed to show all things related to the tag 'beer' wi
 * Venue's data is by Foursquare's APIs
 
 ## How to run the application
-Download the repository directly to your computer or clone to your machine by running:
+Download the repository directly to your local machine or clone by running:
 
 ```
 git clone
@@ -17,11 +17,11 @@ Then, make sure you are in the root directory of the repository and run:
 ```
 npm install
 ```
-Once the modules have all been installed, you are now ready to run the server:
+Once the modules have all been installed, you are now ready to run the server by running:
 ```
 npm start
 ```
-When you are successful, you should be led to a new tab on your browser at http://localhost:5000.
+When you are successful, you should be led to a new tab on a new internet browser at http://localhost:3000.
 
 ## How to use the App
 * The app will begin by showing all the markers within Melbourne
