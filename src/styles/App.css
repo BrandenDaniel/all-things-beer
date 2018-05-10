@@ -114,6 +114,9 @@
   font-style: italic;
 }
 
+.sidebar-error {
+  margin-left: 1em;
+}
 
 /* INFOWINDOW CONTENT */
 .infowindow-container {
@@ -122,7 +125,7 @@
 }
 
 .gm-style-iw {
-  left: 0 !important;
+  left: .7em !important;
 }
 
 .photo {

@@ -37,11 +37,6 @@ class App extends Component {
         bounds: new window.google.maps.LatLngBounds(),
         mapReady: true
       });
-
-    // Log error when load unsuccessful
-    } else if ( !this.state.mapReady ) {
-      console.log("Map did not load");
-      this.setState({mapError: true});
     }
   }
 
@@ -58,7 +53,7 @@ class App extends Component {
               bounds = {bounds}
               mapCenter = {mapCenter}
             />
-          : <p>Please check your internet connection.</p> }
+          : <p className="sidebar-error">Please check your internet connection.</p> }
         </div>
         <div id="map" className="map" role="application">
           { mapError ? // fallback content to allert users that the map load was unsuccessful

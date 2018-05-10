@@ -47,46 +47,44 @@ class SideBarList extends Component {
       bounds.extend(position); //centers to the lat lng postion
 
       location.marker.addListener('click', function() {
-        const marker = this;
-
         // Google's marker drop animation
-        marker.setAnimation(window.google.maps.Animation.DROP);
+        this.setAnimation(window.google.maps.Animation.DROP);
 
         // Get venue's infomation on specific marker click
-        locationsDetails(marker.id)
+        locationsDetails(this.id)
         .then(data => {
           const venue = data.response.venue;
 
           // secondary values if data is not sufficient
-          marker.url = venue.canonicalUrl ? venue.canonicalUrl : 'https://foursquare.com/';
-          marker.photo = venue.bestPhoto ? `${venue.bestPhoto.prefix}width150${venue.bestPhoto.suffix}` : notAvailable;
-          marker.phone = venue.contact.formattedPhone ? venue.contact.formattedPhone : '';
-          marker.address = venue.location.address && venue.location.city ? venue.location.address + ', ' + venue.location.city
+          this.url = venue.canonicalUrl ? venue.canonicalUrl : 'https://foursquare.com/';
+          this.photo = venue.bestPhoto ? `${venue.bestPhoto.prefix}width150${venue.bestPhoto.suffix}` : notAvailable;
+          this.phone = venue.contact.formattedPhone ? venue.contact.formattedPhone : '';
+          this.address = venue.location.address && venue.location.city ? venue.location.address + ', ' + venue.location.city
                           : 'Sorry, there is no current address for this venue.';
 
           // infowindonw content
-          marker.infoContent =
+          this.infoContent =
             `<div class="infowindow-container">
-              <img class="photo" src=${marker.photo} alt="${marker.title}">
+              <img class="photo" src=${this.photo} alt="${this.title}">
               <div class="infowindow-content">
-                <h2 class="name">${marker.title}</h2>
-                <p class="address"> ${marker.address}</p>
-                <a class="contact" href="tel:${marker.phone}"> ${marker.phone}</a>
-                <a class="more-info" href="${marker.url}" target="_blank">Read more ..</a>
+                <h2 class="name">${this.title}</h2>
+                <p class="address"> ${this.address}</p>
+                <a class="contact" href="tel:${this.phone}"> ${this.phone}</a>
+                <a class="more-info" href="${this.url}" target="_blank">Read more ..</a>
               </div>
             </div>`
 
-          infowindow.setContent(marker.infoContent); // set dynamic content to all marker's info window
-          infowindow.open(map, marker); // open info window and anchors to it's marker's postions
+          infowindow.setContent(this.infoContent); // set dynamic content to all marker's info window
+          infowindow.open(map, this); // open info window and anchors to it's marker's postions
         })
         .catch(error =>  { // infowindow content when unable to get api response
-          marker.infoContent = `<div class="venue-error"  role="alert">
-                  <h3>Foursquare request for ${marker.title} was not successful.</h3>
+          this.infoContent = `<div class="venue-error"  role="alert">
+                  <h3>Foursquare request for ${this.title} was not successful.</h3>
                   <p>Refresh or try again later...</p>
                 </div>`
 
-           infowindow.setContent(marker.infoContent);
-          infowindow.open(map, marker);
+           infowindow.setContent(this.infoContent);
+          infowindow.open(map, this);
         });
       });
     });
@@ -107,7 +105,6 @@ class SideBarList extends Component {
   }
 
   filterVenues = (event) => {
-
     const { venues } = this.state;
     const { infowindow } = this.props;
     const query = event.target.value.toLowerCase();
@@ -146,7 +143,7 @@ class SideBarList extends Component {
           <div className="search-box">
             <input
               type="text"
-              placeholder="Filter"
+              placeholder="Filter by Name"
               value={query}
               onChange={this.filterVenues}
               aria-labelledby="text filter"
