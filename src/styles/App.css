@@ -1,16 +1,13 @@
-.App {
-  text-align: center;
-}
-
+/* MAP */
 .gm-style-mtc {
   display: none;
 }
-
 #map {
   width: 100vw;
   height: 100vh;
 }
 
+/* SIDEBAR LIST */
 .sidebar-container {
   background: #fff;
   opacity: .9;
@@ -29,7 +26,7 @@
   margin: 0 0 0 .5em;
   position: absolute;
   display: inline-block;
-  color: #eee;
+  color: #000;
   cursor: pointer;
   transition: .1s ease-in-out;
 }
@@ -117,6 +114,8 @@
   font-style: italic;
 }
 
+
+/* INFOWINDOW CONTENT */
 .infowindow-container {
   text-align: left;
   overflow: hidden;
@@ -190,4 +189,56 @@
 
 .venue-error h3 {
   margin-top: 0;
+}
+
+/* SMALLER SCREENS */
+@media (max-width: 850px) {
+  .sidebar-container {
+    width: 297px;
+  }
+
+  .search-box input {
+    width: 94.7%;
+    font-size: .9em;
+  }
+
+  .search-box {
+    margin: .7em .7em .55em .5em;
+  }
+
+  .title {
+    font-size: 1em;
+  }
+
+  .venue-list li {
+    font-size: .8em;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 430px) {
+  .sidebar-container {
+    width: 272px;
+  }
+
+  .search-box input {
+    width: 92.5%;
+    padding: .4em;
+  }
+
+  .search-box {
+    margin: .65em .7em .55em .65em;
+  }
+
+  .title {
+    font-size: .92em;
+  }
+
+  .venue-list li {
+    font-size: .8em;
+    padding-left: .85em;
+  }
+
+  .close-btn {
+    margin-left: 8px;
+  }
 }

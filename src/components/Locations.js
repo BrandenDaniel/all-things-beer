@@ -10,7 +10,7 @@ class Locations extends Component {
   render() {
     //renders individual venue per list
     return (
-      <li className="place">
+      <li>
         <div
           onClick={this.infoWindow}
           role="button"

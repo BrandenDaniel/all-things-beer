@@ -1,4 +1,4 @@
-# Melbourne All things BEER
+# Melbourne All Things Beer
 
 ## Purpose
 This web application is designed to show all things related to the tag 'beer' within a 12km radius within the CBD of Melbourne, Victoria. This is a React-based project surpervised by Udacity during completion of the Front-End Development Nanodegree program.
@@ -36,4 +36,5 @@ directs you to a venue's marker Info Window
 * [React-script-loader](https://www.npmjs.com/package/react-async-script-loader)
 * [Foursquare API - Venue Search](https://developer.foursquare.com/docs/api/venues/search)
 * [Foursquare API - Venue Details](https://developer.foursquare.com/docs/api/venues/details)
-* [Map styling](http://www.mapstylr.com/map-style-editor/)
+* [Map styling](https://snazzymaps.com/style/35/avocado-world)
+* [Not available Image](https://www.google.com.au/search?q=no+image+available&rlz=1C1CHBF_en-gbAU751AU751&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjP0fG_vPraAhWIT7wKHUNJCu4Q_AUICigB&biw=1078&bih=1468#imgrc=XYIOfiIviSb59M:)

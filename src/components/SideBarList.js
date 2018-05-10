@@ -9,6 +9,7 @@ class SideBarList extends Component {
   state = {
     query: '',
     venues: [],
+    venuesDetails: [],
     filteredVenues: null,
     apiReturned: false // api tracker before render
   }
@@ -51,7 +52,7 @@ class SideBarList extends Component {
         // Google's marker drop animation
         marker.setAnimation(window.google.maps.Animation.DROP);
 
-        // Get venue's infomation
+        // Get venue's infomation on specific marker click
         locationsDetails(marker.id)
         .then(data => {
           const venue = data.response.venue;
@@ -91,6 +92,20 @@ class SideBarList extends Component {
     });
   }
 
+  // sidebar close function & animation
+  slideClose = () => {
+    document.querySelector('.sidebar-container').style.margin = "0 0 0 -500px";
+    setTimeout(function() {
+      document.querySelector('.hamburger-container-out').style.display = "inline-block";
+    }, 200)
+  }
+
+  // sidebar open function & animation
+  slideOpen = () => {
+    document.querySelector('.sidebar-container').style.margin = "0";
+    document.querySelector('.hamburger-container-out').style.display = "none";
+  }
+
   filterVenues = (event) => {
 
     const { venues } = this.state;
@@ -112,20 +127,6 @@ class SideBarList extends Component {
 
     // Updates the filterVenues object within state
     this.setState({filteredVenues: filteredVenues })
-  }
-
-  // sidebar close function & animation
-  slideClose = () => {
-    document.querySelector('.sidebar-container').style.margin = "0 0 0 -500px";
-    setTimeout(function() {
-      document.querySelector('.hamburger-container-out').style.display = "inline-block";
-    }, 200)
-  }
-
-  // sidebar open function & animation
-  slideOpen = () => {
-    document.querySelector('.sidebar-container').style.margin = "0";
-    document.querySelector('.hamburger-container-out').style.display = "none";
   }
 
   render() {
