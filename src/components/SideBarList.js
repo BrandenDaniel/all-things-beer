@@ -137,9 +137,9 @@ class SideBarList extends Component {
           </i>
         </div>
         <div className="sidebar-container">
-          <h2 className="title">MELBOURNE ALL THINGS BEER
+          <h1 className="title">MELBOURNE ALL THINGS BEER
             <span className="close-btn" onClick={this.slideClose}>&times;</span>
-          </h2>
+          </h1>
           <div className="search-box">
             <input
               type="text"

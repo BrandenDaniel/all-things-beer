@@ -35,8 +35,13 @@ class App extends Component {
         map: map,
         infowindow: new window.google.maps.InfoWindow({maxWidth: 300}),
         bounds: new window.google.maps.LatLngBounds(),
-        mapReady: true
+        mapReady: true,
+        mapError: false
       });
+    } else if (isScriptLoadSucceed === false) {
+      this.setState({
+        mapError: true
+      })
     }
   }
 
@@ -57,7 +62,7 @@ class App extends Component {
         </div>
         <div id="map" className="map" role="application">
           { mapError ? // fallback content to allert users that the map load was unsuccessful
-            <div id="map-error" className="error" role="alert">
+            <div id="map-error" className="map-error" role="alert">
               <p>Google Maps did not load. Try refresing your page or try again later.</p>
             </div>
           : ''
